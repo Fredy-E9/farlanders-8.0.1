@@ -27,7 +27,6 @@ val loader_version: String by project
 
 val halplibe_version: String by project
 val mod_menu_version: String by project
-val dragonfly_version: String by project
 
 group = mod_group
 base.archivesName.set(mod_name)
@@ -99,7 +98,6 @@ dependencies {
     modImplementation("turniplabs:halplibe:$halplibe_version")
 
     modImplementation("turniplabs:modmenu-bta:$mod_menu_version")
-    modImplementation(files("libs/dragonfly-1.7.0-alpha.5-7.3_04.jar"))
 
     implementation("org.slf4j:slf4j-api:1.8.0-beta4")
     implementation("org.apache.logging.log4j:log4j-slf4j18-impl:2.16.0")
@@ -133,13 +131,13 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
     withSourcesJar()
 }
 
 tasks.compileJava {
-    options.release.set(8)
+    options.release.set(17)
 }
 
 tasks.jar {
